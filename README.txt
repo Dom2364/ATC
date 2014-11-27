@@ -5,3 +5,6 @@ To request things, select an airport or runway then in the dropdown box, select 
 To add groups, type the name of it in the text box then click the add group button. To remove a group, type the name of it or select it then click delete group. To join or leave a group, click the group or type the name then click the appropriate button.
 
 There is more detailed help in the help menu.
+
+IMPORTANT: You can add admins by going to the server lua file then adding admin steam id's to the table.
+The only thing admins can do is open any runway. Useful if someone refuses to open it after a landing or takeoff.
