@@ -539,7 +539,9 @@ function getRunwayData(sender)
 	runways.ldma.r1.UsedBy = airports.ldma.Runways.r1.UsedBy
 	runways.ldma.r1.Enabled = airports.ldma.Runways.r1.Enabled
 
-	Network:Send(sender, "recieveRunwayData", runways)
+	if sender:GetName() ~= nil then
+		Network:Send(sender, "recieveRunwayData", runways)
+	end
 end
 
 function getGroupData(sender)
@@ -547,7 +549,9 @@ function getGroupData(sender)
 	for gk, gv in pairs(groups) do
 		groupData[gk] = gv
 	end
-	Network:Send(sender, "recieveGroupData", groupData)
+	if sender:GetName() ~= nil then
+		Network:Send(sender, "recieveGroupData", groupData)
+	end
 end
 
 function PlayerQuit(args)
@@ -703,7 +707,7 @@ end
 
 function lol(info)
 	if info:InVehicle() == true then
-		info:GetVehicle():SetAngularVelocity(Vector3(0, 1000, 0))
+		--info:GetVehicle():SetAngularVelocity(Vector3(0, 1000, 0))
 	end
 end
 

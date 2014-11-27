@@ -809,6 +809,38 @@ function PlayerChat(args)
 	end
 end
 
+function ModuleLoad()
+	Events:Fire( "HelpAddItem",
+	{
+		name = "ATC",
+		text =
+			"The script basically allows one person to takeoff or land on a runway at once. \n" ..
+			"If you dont follow that, you get shot down. \n" ..
+			"It also adds some other useful things for flying such as listing all places to land, allows you to plot waypoints to runways or airports, and commands for organising flying groups and airtrips. \n" ..
+
+			"To open the main menu to request takeoffs and landings, press 5\n" ..
+			"To open the group menu to add, delete, join and leave groups, press 4\n" ..
+			"\n" ..
+			"To takeoff or land, select the runway in the menu then select request takeoff or land from the box below\n" ..
+			"If you take off it will open the runway automatically but when landing you will need to open it yourself by selecting 'Request Opening' on the runway\n" ..
+			"Make sure you only open it after you are outside the clearance zones (the circles) because you will be killed if you are in it when it opens\n" ..
+			"You can also select an airport or runway and teleport or set a waypoint by choosing 'Set Gps'\n" ..
+			"If you own a group you can choose the group versions that will allow everyone in your group instead of just you\n" ..
+			"To add a group, type the name in the text box then click 'Add Group'\n" ..
+			"To delete a group, you can select it or type the name then click 'Delete Group'\n" ..
+			"To join or leave a group, select it then click the appropriate button\n"
+	} )
+end
+
+function ModuleUnload()
+    Events:Fire( "HelpRemoveItem",
+	{
+		name = "ATC"
+	} )
+end
+
+Events:Subscribe("ModuleLoad", ModuleLoad)
+Events:Subscribe("ModuleUnload", ModuleUnload)
 Network:Subscribe("recieveRunwayData", recieveRunwayData)
 Network:Subscribe("recieveGroupData", recieveGroupData)
 Network:Subscribe("sendGps", recieveGps)
