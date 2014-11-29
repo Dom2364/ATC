@@ -707,6 +707,7 @@ end
 
 function lol(info)
 	if info:InVehicle() == true then
+		--Enable this for lolz (Just me testing stuff :P)
 		--info:GetVehicle():SetAngularVelocity(Vector3(0, 1000, 0))
 	end
 end

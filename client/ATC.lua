@@ -586,6 +586,21 @@ function renderList()
 							if rv.Zone4 ~= nil then
 								Render:DrawCircle(rv.Zone4, 40, Color(0, 255, 0))
 							end
+							trans = Transform3()
+							trans:Rotate(Angle(0, 0, 0))
+							Render:SetTransform(trans)
+								Render:DrawCircle(rv.Location, 40, Color(0, 255, 0))
+								Render:DrawCircle(rv.Zone1, 40, Color(0, 255, 0))
+								if rv.Zone2 ~= nil then
+									Render:DrawCircle(rv.Zone2, 40, Color(0, 255, 0))
+								end
+								if rv.Zone3 ~= nil then
+									Render:DrawCircle(rv.Zone3, 40, Color(0, 255, 0))
+								end
+								if rv.Zone4 ~= nil then
+									Render:DrawCircle(rv.Zone4, 40, Color(0, 255, 0))
+								end
+							Render:ResetTransform()
 						else
 							Render:DrawCircle(rv.Location, 40, Color(255, 0, 0))
 							Render:DrawCircle(rv.Zone1, 40, Color(255, 0, 0))
@@ -598,6 +613,21 @@ function renderList()
 							if rv.Zone4 ~= nil then
 								Render:DrawCircle(rv.Zone4, 40, Color(255, 0, 0))
 							end
+							trans = Transform3()
+							trans:Rotate(Angle(0, 0, 0))
+							Render:SetTransform(trans)
+								Render:DrawCircle(rv.Location, 40, Color(255, 0, 0))
+								Render:DrawCircle(rv.Zone1, 40, Color(255, 0, 0))
+								if rv.Zone2 ~= nil then
+									Render:DrawCircle(rv.Zone2, 40, Color(255, 0, 0))
+								end
+								if rv.Zone3 ~= nil then
+									Render:DrawCircle(rv.Zone3, 40, Color(255, 0, 0))
+								end
+								if rv.Zone4 ~= nil then
+									Render:DrawCircle(rv.Zone4, 40, Color(255, 0, 0))
+								end
+							Render:ResetTransform()
 						end
 					end
 				end
@@ -810,8 +840,7 @@ function PlayerChat(args)
 end
 
 function ModuleLoad()
-	Events:Fire( "HelpAddItem",
-	{
+	Events:Fire( "HelpAddItem", {
 		name = "ATC",
 		text =
 			"The script basically allows one person to takeoff or land on a runway at once. \n" ..
@@ -828,8 +857,10 @@ function ModuleLoad()
 			"If you own a group you can choose the group versions that will allow everyone in your group instead of just you\n" ..
 			"To add a group, type the name in the text box then click 'Add Group'\n" ..
 			"To delete a group, you can select it or type the name then click 'Delete Group'\n" ..
-			"To join or leave a group, select it then click the appropriate button\n"
-	} )
+			"To join or leave a group, select it then click the appropriate button\n" ..
+			"\n" ..
+			"Made by Dom2364\n"
+	})
 end
 
 function ModuleUnload()
